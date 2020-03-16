@@ -73,7 +73,6 @@ class UserList extends Component{
             </div>
         )
     }
-
 }
 
 function mapStateProps(reduxState){
@@ -81,7 +80,5 @@ function mapStateProps(reduxState){
         users: reduxState.users
     }
 }
-
-
 
 export default connect(mapStateProps, {addUser, removeUser})(UserList)
