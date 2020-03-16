@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import User from "./user";
 
 import {connect} from "react-redux";
-
+import {addUser, removeUser} from '../redux/actionCreator'
 class UserList extends Component{
     constructor(props){
         super(props)
@@ -18,10 +18,7 @@ class UserList extends Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.dispatch({
-            type: "ADD_USER",
-            user: this.state
-        })
+        this.props.addUser(this.state)
         this.setState({
             name: "",
             lastname: "",
@@ -35,10 +32,7 @@ class UserList extends Component{
         })
     }
     removeUser(id){
-        this.props.dispatch({
-            type: "REMOVE_USER",
-            id
-        })
+        this.props.removeUser(id)
     }
 
     render(){
@@ -88,4 +82,6 @@ function mapStateProps(reduxState){
     }
 }
 
-export default connect(mapStateProps)(UserList)
+
+
+export default connect(mapStateProps, {addUser, removeUser})(UserList)
