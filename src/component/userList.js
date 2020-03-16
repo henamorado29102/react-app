@@ -35,7 +35,6 @@ class UserList extends Component{
         })
     }
     removeUser(id){
-        debugger
         this.props.dispatch({
             type: "REMOVE_USER",
             id
